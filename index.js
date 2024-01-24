@@ -19,12 +19,7 @@ function sendData() {
             
             else if (result.gender === 'female') {
                 document.body.style.background = 'pink';
-                //gender = document.getElementById('gender').innerHTML = "weiblich";
-            }
-
-            else if (result.gender === 'female') {
-                document.body.style.background = 'pink';
-                //gender = document.getElementById('gender').innerHTML = "weiblich";
+                gender = document.getElementById('gender').innerHTML = "weiblich";
             }
 
             else {
