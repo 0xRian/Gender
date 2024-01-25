@@ -1,28 +1,32 @@
 let vorname;
 let gender;
 
+document.addEventListener("DOMContentLoaded", function () {
+    let input = document.getElementById("nameInput");
+    input.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("myBtn").click();
+        }
+    });
+});
+
 function sendData() {
-    // Input Wert bekommen
+    // Info des Inputs
     const nameInput = document.getElementById('nameInput').value;
 
-
-    // Funktion aufrufen um Geschlecht-Info zu bekommen
+    // Funktion aufrufen für Geschlecht-Info
     getGenderInfo(nameInput)
         .then(result => {
-            
             if (result.gender === 'male') {
                 document.body.style.background = '#3da4d5';
-                //vorname = document.getElementById('vorname').innerHTML = nameInput;
+                // vorname = document.getElementById('vorname').innerHTML = nameInput;
                 gender = document.getElementById('gender').innerHTML = "männlich";
-                //alert(`Name: ${result.name}, Gender: ${result.gender}`);
-            }
-            
-            else if (result.gender === 'female') {
+                // alert(`Name: ${result.name}, Gender: ${result.gender}`);
+            } else if (result.gender === 'female') {
                 document.body.style.background = 'pink';
                 gender = document.getElementById('gender').innerHTML = "weiblich";
-            }
-
-            else {
+            } else {
                 return null;
             }
         })
